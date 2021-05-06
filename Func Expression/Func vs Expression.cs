@@ -33,7 +33,7 @@ namespace HelloWorld
             }
 
             Expression<Func<int, int>> ExpressionAsMethod = a => a * a;
-            Func<int, int> F = ExpressionAsMethod.Compile();
+            Func<int, int> F = ExpressionAsMethod.Compile();  // Convert Expression to Func
             IEnumerable<int> d = new List<int>() { 1, 2, 3, 4, 5 };
             var itemAsQueryable = d.AsQueryable();
             foreach (var item in itemAsQueryable)
@@ -41,8 +41,25 @@ namespace HelloWorld
                 Console.WriteLine(F(item));        // 1, 4, 9, 16, 25
             }
 
-            // 
+            // IEnumerable<T> extensions accept Func<TSource, bool>. We don’t need an expression for IEnumerable as it’s just an in-memory collection
+            // IQueryable<T> extensions accept Expression<Func<TSource, bool>>
 
+            // We can call them with the exact same syntax 
+            //                                          Func - .Where(x => x.property == "value")
+            //                                    Expression - .Where(x => x.property == "value")
+
+
+            // Expression<Func<T>> is a description of a function as an expression tree. 
+            // It can be compiled to IL at run time that generates a Func<T> 
+            // but it can also be translated to other languages e.g.SQL in LINQ to SQL.
+            // We  need an expression for IQueryable because we don’t know what we’re querying 
+            // the specific IQueryable implementation will translate the given expression into 
+            // whatever language needed to access the data.E.g.SQL in LINQ to SQL, or a specific HTTP request for a REST API.
+
+            // Summary
+            // Func<T, bool> is a pointer to a compiled delegate method 
+            // Expression<Func<T, bool>> is a description of a function 
+            // that can be compiled to IL at runtime or translated into whatever language we have a provider for.
 
         }
     }
