@@ -9,20 +9,24 @@ namespace HelloWorld
     {
         public static void Main(string[] args)
         {
-            List<string> names = new List<string>(){"Jim", "John", "Jane", "Fizz", "Tom"};
+            List<string> names = new List<string>() { "Jim", "John", "Jane", "Fizz", "Tom" };
 
-            foreach (var name in ContainsLetter(names, name => name.Contains("o")))
+            var ls = ContainsLetter(names, name => name.Contains("o"));
+
+            foreach (var name in ls)
             {
-                Console.WriteLine(name);
+                Console.WriteLine(name);  // John, Tom
             }
         }
         public static IEnumerable<string> ContainsLetter(List<string> names, Func<string, bool> nameComparer)
         {
-            foreach(var name in names)
+            List<string> ls = new List<string>();
+            foreach (var name in names)
             {
-                if(nameComparer(name))
-                    yield return name;
+                if (nameComparer(name))
+                    ls.Add(name);
             }
+            return ls;
         }
     }
 }
