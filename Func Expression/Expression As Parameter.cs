@@ -22,7 +22,7 @@ namespace HelloWorld
         }
         public static IEnumerable<string> ContainsLetter(IEnumerable<string> names, Expression<Func<string, bool>> nameComparer)
         {
-            var name = names.AsQueryable().Where(nameComparer);
+            var name = names.AsQueryable().Where(nameComparer); // Func As parameter
             return name;
         }
     }
