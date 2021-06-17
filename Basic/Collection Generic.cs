@@ -53,6 +53,14 @@ namespace HelloWorld
        //////  G  E  N  R  I  C /////
 
             List<int> l = new List<int>();
+            
+            List<Student> studentList = new List<Student>()
+            { 
+                new Student(){ Id = "1", Name = "Kamal" },
+                new Student(){ Id = "2", Name = "Jamal" }
+            };
+            
+            studentList.Add(new Student() { Id = "3", Name = "Rakib" });
 
             HashSet<int> Hs = new HashSet<int>(); // Same as List but doesn't save duplicate value, faster than List
 
