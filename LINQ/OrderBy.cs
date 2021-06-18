@@ -17,8 +17,8 @@ namespace HelloWorld
             
             var querySyntax =  from student in Student.GetStudents()
                                where student.Gender.ToUpper() == "MALE"      // Type is IOrderedEnumerable<Student>
-                               orderby student.Name                          // descending. will be ordered by descending
-                               select student;
+                               orderby student.Name                          // ascending is optional  
+                               select student;                               // orderby student.Name descending. will be ordered by descending
         }
         public class Student
         {
