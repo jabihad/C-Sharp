@@ -11,7 +11,7 @@ namespace HelloWorld
         {
             var querySyntax = from student in Student.GetAllStudents()
                               join address in Address.GetAllAddresses()
-                              on student.AddressId equals address.ID
+                              on student.AddressId equals address.Id
                               join department in Department.GetAllDepartments()
                               on student.DepartmentId equals department.Id
                               select new
@@ -20,7 +20,7 @@ namespace HelloWorld
                                   Department = department.Name,
                                   Road = address.Street
                               };
-            foreach(var student in querySyntax)
+            foreach (var student in querySyntax)
             {
                 Console.WriteLine(student.StudentName + " " + student.Department + " " + student.Road);
             }
@@ -28,7 +28,7 @@ namespace HelloWorld
     }
     public class Student
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int DepartmentId { get; set; }
         public int AddressId { get; set; }
@@ -36,36 +36,36 @@ namespace HelloWorld
         {
             return new List<Student>()
             {
-                new Student { ID = 1, Name = "Preety", DepartmentId = 1, AddressId = 1 },
-                new Student { ID = 2, Name = "Priyanka", DepartmentId = 2, AddressId = 2 },
-                new Student { ID = 3, Name = "Anurag", DepartmentId = 1, AddressId = 3 },
-                new Student { ID = 4, Name = "Pranaya", DepartmentId = 4, AddressId = 4 },
-                new Student { ID = 5, Name = "Hina", DepartmentId = 1, AddressId = 5 },
-                new Student { ID = 6, Name = "Sambit", DepartmentId = 2, AddressId = 6 },
-                new Student { ID = 7, Name = "Happy", DepartmentId = 3, AddressId = 7},
-                new Student { ID = 8, Name = "Tarun", DepartmentId = 4, AddressId = 8 },
-                new Student { ID = 9, Name = "Santosh", DepartmentId = 3, AddressId = 9 },
-                new Student { ID = 10, Name = "Raja", DepartmentId = 2, AddressId = 10},
-                new Student { ID = 11, Name = "Sudhanshu", DepartmentId = 2, AddressId = 11}
+                new Student { Id = 1, Name = "Preety", DepartmentId = 1, AddressId = 1 },
+                new Student { Id = 2, Name = "Priyanka", DepartmentId = 2, AddressId = 2 },
+                new Student { Id = 3, Name = "Anurag", DepartmentId = 1, AddressId = 3 },
+                new Student { Id = 4, Name = "Pranaya", DepartmentId = 4, AddressId = 4 },
+                new Student { Id = 5, Name = "Hina", DepartmentId = 1, AddressId = 5 },
+                new Student { Id = 6, Name = "Sambit", DepartmentId = 2, AddressId = 6 },
+                new Student { Id = 7, Name = "Happy", DepartmentId = 3, AddressId = 7},
+                new Student { Id = 8, Name = "Tarun", DepartmentId = 4, AddressId = 8 },
+                new Student { Id = 9, Name = "Santosh", DepartmentId = 3, AddressId = 9 },
+                new Student { Id = 10, Name = "Raja", DepartmentId = 2, AddressId = 10},
+                new Student { Id = 11, Name = "Sudhanshu", DepartmentId = 2, AddressId = 11}
             };
         }
     }
     public class Address
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Street { get; set; }
         public static List<Address> GetAllAddresses()
         {
             return new List<Address>()
             {
-                new Address { ID = 1, Street = "Lane 1"},
-                new Address { ID = 2, Street = "Lane 1"},
-                new Address { ID = 3, Street = "Lane 13"},
-                new Address { ID = 4, Street = "Lane 14"},
-                new Address { ID = 5, Street = "Lane 1"},
-                new Address { ID = 9, Street = "Lane 1"},
-                new Address { ID = 10, Street = "Lane 110"},
-                new Address { ID = 11, Street = "Lane 111"},
+                new Address { Id = 1, Street = "Lane 1"},
+                new Address { Id = 2, Street = "Lane 1"},
+                new Address { Id = 3, Street = "Lane 13"},
+                new Address { Id = 4, Street = "Lane 14"},
+                new Address { Id = 5, Street = "Lane 1"},
+                new Address { Id = 9, Street = "Lane 1"},
+                new Address { Id = 10, Street = "Lane 110"},
+                new Address { Id = 11, Street = "Lane 111"},
             };
         }
     }
