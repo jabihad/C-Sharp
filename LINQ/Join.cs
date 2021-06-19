@@ -51,10 +51,10 @@ namespace HelloWorld
                                        from student in StudentGroups.DefaultIfEmpty()
                                        select new { Department = dept, StudentName = student?.Name };
 
-            foreach(var item in flattenedQuerySyntax)
-            {
+            //foreach(var item in flattenedQuerySyntax)
+            //{
                 //Console.WriteLine("Department - " + item.Department.Name + " . Student - " + item.StudentName);
-            }
+            //}
 
 
 
