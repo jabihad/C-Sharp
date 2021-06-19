@@ -15,24 +15,24 @@ namespace HelloWorld
         // Cross Join doesn't require common property. It generates cartesian products of the collection
 
             var joinQuerySyntax = from dept in Department.GetAllDepartments()
-                              join std in Student.GetAllStudents()
-                              on dept.ID equals std.DepartmentId
-                              select new { Name = std.Name, Department = dept.Name };
+                                  join std in Student.GetAllStudents()
+                                  on dept.ID equals std.DepartmentId
+                                  select new { Name = std.Name, Department = dept.Name };
             //foreach(var std in joinQuerySyntax)
             //{
             //    Console.WriteLine(std.Name + " " + std.Department);
             //}
 
             var groupJoinQuerySyntax = from dept in Department.GetAllDepartments()
-                                   join std in Student.GetAllStudents()
-                                   on dept.ID equals std.DepartmentId
-                                   into StudentGroups         // List of children. Here it is list of Student
-                                   select new { Department = dept.Name, StudentGroups = StudentGroups };
-                                   // from p in Parent
-                                   // join c in Child
-                                   // on p.Id equals c.Id into GROUPJOIN
-                                   // select new { NewParent = Parent, NewChildren = GROUPJOIN};
-                                   // NewChildren is a list of Children. It can be empty if there is no children
+                                       join std in Student.GetAllStudents()
+                                       on dept.ID equals std.DepartmentId
+                                       into StudentGroups         // List of children. Here it is list of Student
+                                       select new { Department = dept.Name, StudentGroups = StudentGroups };
+                                       // from p in Parent
+                                       // join c in Child
+                                       // on p.Id equals c.Id into GROUPJOIN
+                                       // select new { NewParent = Parent, NewChildren = GROUPJOIN};
+                                       // NewChildren is a list of Children. It can be empty if there is no children
 
             //Outer Foreach is for all department
             //foreach (var item in groupJoinQuerySyntax)
